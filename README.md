@@ -11,6 +11,12 @@ The goal of this project is to enhance the robustness and pronunciation quality 
 - Investigating the impact of text-acoustic alignment in conditioning the TTS model.  
 - Applying reinforcement learning to reduce transcription errors and improve robustness across speakers and languages.  
 
-⚠️ **This repository is under active development.** The initial setup, experiments, and scripts will be added soon.
 
-Stay tuned for updates, code releases, and experimental results!
+## Concrete steps to apply
+- Segment and preprocess the [Blizzard2023](https://zenodo.org/records/7560290) dataset, converting long-form audio into segmented clips based on the metadata.
+- Run inference with the Conditional Flow Matching model [ZipVoice](https://github.com/k2-fsa/ZipVoice) to generate synthetic audio from the dataset.
+- Use [tts4all_eval](https://git-lium.univ-lemans.fr/jsalt2025/wp1/tts4all_eval) to assess the quality of the synthetic audio by comparing it with the reference dataset using Character Error Rate (CER) and Word Error Rate (WER).
+- Finetune [ZipVoice](https://github.com/k2-fsa/ZipVoice), pre-trained on the [Emilia dataset](https://huggingface.co/datasets/amphion/Emilia-Dataset), on the **Blizzard2023** dataset to improve generation quality.
+- Finetune [Whisper-Large-v3](https://huggingface.co/openai/whisper-large-v3), used for transcribing audio into text, on **Blizzard2023** to improve performance.
+- **More steps and code to come**
+
